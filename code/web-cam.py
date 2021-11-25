@@ -18,6 +18,17 @@ old_btn_rotate = 0
 rotation = 0    # rotation type, from 0 to 3, see rotate()
 power_off_count = 0 # times to count to power off
 
+# camera settings
+camera.iso = 100
+time.sleep(2)
+camera.shutter_speed = camera.exposure_speed
+camera.exposure_mode = 'off'
+# g = camera.awb_gains
+camera.awb_mode = 'off'
+camera.awb_gains = (3.1, 1.7)
+camera.framerate = 30
+camera.drc_strength = 'off'
+
 # Start the camera live preview on the HDMI
 camera.start_preview()
 GPIO.output(22, 1)      # LED on
@@ -59,6 +70,6 @@ try:
                                 print("Power off")
                                 os.system("sudo poweroff") # send system command to power off
 
-                time.sleep(0.1)
+               # time.sleep(0.01)
 finally:
         GPIO.cleanup()
